@@ -1,229 +1,105 @@
-/* Importar fuente Poppins desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+async function cargarInvestigaciones() {
+    try {
+        const response = await fetch('data/investigaciones.json');
+        const investigaciones = await response.json();
 
-/* Estilos generales */
-body {
-    font-family: 'Poppins', sans-serif; /* Fuente moderna y bonita */
-    background-color: #f8f9fa;
-    color: #5e2785; /* Morado oscuro */
-    margin: 0;
-    padding: 0;
-}
+        // Contenedor de las tarjetas
+        const container = document.getElementById('investigaciones-container');
+        const searchBar = document.getElementById('search-bar'); // Input del buscador
+        const toggleThemeButton = document.getElementById('toggle-theme'); // Botón de cambio de tema
+        container.innerHTML = '';
 
-/* Botón para cambiar tema */
-#toggle-theme {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: #5e2785; /* Morado oscuro */
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.9em;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+        // Contador de publicaciones por año
+        const publicacionesPorAnio = {};
+        investigaciones.forEach((investigacion) => {
+            const anio = investigacion.anio;
+            publicacionesPorAnio[anio] = (publicacionesPorAnio[anio] || 0) + 1;
+        });
 
-#toggle-theme:hover {
-    background-color: #421a60; /* Morado más oscuro */
-    transform: translateY(-3px);
-}
+        // Actualizar el texto del conteo en la página
+        const publicacionesTexto = document.getElementById('publicaciones-por-anio');
+        publicacionesTexto.textContent = `Publicaciones: ${Object.entries(publicacionesPorAnio)
+            .map(([anio, cantidad]) => `${cantidad} en ${anio}`)
+            .join(' · ')}`;
 
-/* Título principal */
-header h1 {
-    font-size: 2em;
-    color: #d4a017; /* Amarillo oscuro */
-    text-align: center;
-    margin-bottom: 10px;
-}
+        // Función para renderizar las tarjetas
+        function mostrarInvestigaciones(filtradas) {
+            container.innerHTML = ''; // Limpiar el contenedor
 
-/* Estilos para el buscador */
-#search-bar {
-    width: 100%;
-    max-width: 600px; /* Ajusta el ancho máximo */
-    padding: 15px 20px;
-    font-size: 1em;
-    border: none; /* Sin borde */
-    border-radius: 30px; /* Bordes redondeados */
-    background-color: #f2f5fc; /* Fondo claro */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    outline: none;
-    margin: 20px auto; /* Centra el buscador */
-    display: block; /* Asegura que esté centrado */
-    color: #6c757d; /* Color del texto */
-    font-family: 'Poppins', sans-serif;
-}
+            if (filtradas.length === 0) {
+                container.innerHTML = '<p>No se encontraron resultados.</p>';
+                return;
+            }
 
-/* Efecto al enfocar el buscador */
-#search-bar:focus {
-    background-color: #e8effc; /* Fondo más claro al enfocar */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    outline: none;
-}
+            filtradas.forEach((investigacion) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-id', investigacion.id);
 
-/* Contenedor principal */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta automáticamente las columnas */
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+                const img = document.createElement('img');
+                img.src = investigacion.imagen;
+                img.alt = investigacion.titulo;
+                img.className = 'card-img';
 
-/* Tarjetas */
-.card {
-    display: flex;
-    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
+                const titulo = document.createElement('h3');
+                titulo.textContent = investigacion.titulo;
 
-/* Imagen dentro de la tarjeta */
-.card-img {
-    width: 100%; /* Asegura que ocupe todo el ancho en pantallas pequeñas */
-    height: auto;
-    max-width: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
+                const descripcion = document.createElement('p');
+                descripcion.textContent = investigacion.descripcion;
 
-/* Contenido textual */
-.card-content {
-    flex: 1;
-    text-align: center; /* Centra el texto en pantallas pequeñas */
-}
+                const autor = document.createElement('p');
+                autor.innerHTML = `<strong>Autor:</strong> ${investigacion.autor}`;
 
-.card-content h3 {
-    font-size: 1.1em; /* Tamaño de letra reducido */
-    font-weight: 600; /* Resalta el título */
-    color: #5e2785; /* Morado oscuro */
-    margin: 0 0 10px;
-}
+                const anio = document.createElement('p');
+                anio.innerHTML = `<strong>Año:</strong> ${investigacion.anio}`;
 
-.card-content p {
-    margin: 5px 0;
-    font-size: 0.85em; /* Tamaño más pequeño */
-    color: #4a4a4a; /* Gris oscuro */
-}
+                const linkButton = document.createElement('a');
+                linkButton.href = investigacion.link;
+                linkButton.textContent = 'Ver documento';
+                linkButton.className = 'link-button';
+                linkButton.target = '_blank';
 
-.card-content p strong {
-    color: #5e2785; /* Morado oscuro para los textos importantes */
-    font-weight: 600;
-}
+                cardContent.appendChild(titulo);
+                cardContent.appendChild(descripcion);
+                cardContent.appendChild(autor);
+                cardContent.appendChild(anio);
+                cardContent.appendChild(linkButton);
 
-/* Botón */
-.link-button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background-color: #d4a017; /* Amarillo oscuro */
-    color: #fff;
-    font-size: 0.85em; /* Tamaño más pequeño */
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+                card.appendChild(img);
+                card.appendChild(cardContent);
 
-.link-button:hover {
-    background-color: #b38914; /* Amarillo más oscuro */
-}
+                container.appendChild(card);
+            });
+        }
 
-/* Numeración en las tarjetas */
-.card::before {
-    content: attr(data-id);
-    display: inline-block;
-    background-color: #5e2785; /* Morado oscuro */
-    color: white;
-    font-weight: bold;
-    font-size: 0.85em; /* Tamaño más pequeño */
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    margin-bottom: 10px; /* Ajusta el espacio */
-}
+        // Mostrar todas las investigaciones inicialmente
+        mostrarInvestigaciones(investigaciones);
 
-/* Tema alto contraste */
-body.high-contrast {
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Texto blanco */
-}
+        // Filtrar las investigaciones en tiempo real
+        searchBar.addEventListener('input', (e) => {
+            const termino = e.target.value.toLowerCase(); // Convierte el texto a minúsculas
+            const filtradas = investigaciones.filter((investigacion) => {
+                return (
+                    investigacion.titulo.toLowerCase().includes(termino) ||
+                    investigacion.descripcion.toLowerCase().includes(termino) ||
+                    investigacion.autor.toLowerCase().includes(termino) ||
+                    investigacion.anio.toString().includes(termino)
+                );
+            });
 
-body.high-contrast .card {
-    background-color: #333;
-    color: #fff;
-}
+            mostrarInvestigaciones(filtradas);
+        });
 
-body.high-contrast .card-content p strong {
-    color: #f0c808; /* Amarillo alto contraste */
-}
-
-body.high-contrast .link-button {
-    background-color: #f0c808; /* Amarillo alto contraste */
-    color: #000;
-}
-
-body.high-contrast .link-button:hover {
-    background-color: #d1a406; /* Amarillo más oscuro */
-}
-
-body.high-contrast #toggle-theme {
-    background-color: #f0c808; /* Amarillo alto contraste */
-    color: #000;
-}
-
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
-        margin-bottom: 15px;
-    }
-
-    .grid-container {
-        padding: 10px;
-        gap: 15px;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    .card-content h3 {
-        font-size: 1em; /* Reduce el tamaño del título */
-    }
-
-    .card-content p {
-        font-size: 0.8em; /* Reduce el tamaño del texto */
-    }
-
-    .link-button {
-        font-size: 0.8em; /* Reduce el tamaño del botón */
-        padding: 7px 10px; /* Ajusta el padding */
-    }
-
-    .card-img {
-        max-width: 120px; /* Reduce el tamaño máximo de la imagen */
-        margin-bottom: 10px;
-    }
-
-    #search-bar {
-        max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
-        padding: 10px;
+        // Lógica para cambiar de tema
+        toggleThemeButton.addEventListener('click', () => {
+            document.body.classList.toggle('high-contrast');
+        });
+    } catch (error) {
+        console.error('Error al cargar las investigaciones:', error);
     }
 }
+
+document.addEventListener('DOMContentLoaded', cargarInvestigaciones);
