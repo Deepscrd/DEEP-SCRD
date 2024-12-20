@@ -1,51 +1,29 @@
-// Obtener el contenedor de investigaciones
-const container = document.getElementById('investigaciones-container');
-
-// Datos de las investigaciones
-const investigaciones = [
+[
     {
-        id: 84,
-        titulo: "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
-        descripcion: "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
-        autor: "SCRD - DANE",
-        anio: 2024,
-        imagen: "img/meta4.png",
-        link: "docs/DEEP_Publicación%20de%20Resultados%20CSECCB%20serie%202014-2023pr.pdf"
+        "id": 84,
+        "titulo": "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
+        "descripcion": "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
+        "autor": "SCRD - DANE",
+        "anio": 2024,
+        "imagen": "img/meta4.png",
+        "link": "docs/DEEP_Publicación%20de%20Resultados%20CSECCB%20serie%202014-2023pr.pdf"
     },
     {
-        id: 95,
-        titulo: "Plan Cultura 2038",
-        descripcion: "Análisis de actores clave en el Plan de Cultura 2038.",
-        autor: "SCRD",
-        anio: 2024,
-        imagen: "img/plan-cultura-2038.jpg",
-        link: "docs/plan-cultura-2038.pdf"
+        "id": 95,
+        "titulo": "Plan Cultura 2038",
+        "descripcion": "Análisis de actores clave en el Plan de Cultura 2038.",
+        "autor": "SCRD",
+        "anio": 2024,
+        "imagen": "img/plan-cultura-2038.jpg",
+        "link": "docs/plan-cultura-2038.pdf"
     },
     {
-        id: 60,
-        titulo: "Metodología de Priorización",
-        descripcion: "Diseño de una metodología de priorización geográfica multivariada.",
-        autor: "SCRD",
-        anio: 2024,
-        imagen: "img/metodologia-priorizacion.jpg",
-        link: "docs/metodologia-priorizacion.pdf"
+        "id": 60,
+        "titulo": "Metodología de Priorización",
+        "descripcion": "Diseño de una metodología de priorización geográfica multivariada.",
+        "autor": "SCRD",
+        "anio": 2024,
+        "imagen": "img/metodologia-priorizacion.jpg",
+        "link": "docs/metodologia-priorizacion.pdf"
     }
-];
-
-// Generar tarjetas dinámicamente
-investigaciones.forEach(investigacion => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-
-    card.innerHTML = `
-        <img src="${investigacion.imagen}" alt="Imagen de ${investigacion.titulo}" class="card-img">
-        <div class="card-content">
-            <h3>${investigacion.titulo}</h3>
-            <p>${investigacion.descripcion}</p>
-            <p><strong>Año:</strong> ${investigacion.anio} | <strong>Autor:</strong> ${investigacion.autor}</p>
-            <a href="${investigacion.link}" class="link-button" target="_blank">Ver Documento</a>
-        </div>
-    `;
-
-    container.appendChild(card);
-});
+]
