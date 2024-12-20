@@ -1,3 +1,15 @@
+/* Importar fuente Poppins desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna y bonita */
+    background-color: #f8f9fa;
+    color: #5e2785; /* Morado oscuro */
+    margin: 0;
+    padding: 0;
+}
+
 /* Contenedor principal */
 .grid-container {
     display: block; /* Cambia de grid a block */
@@ -39,19 +51,21 @@
 }
 
 .card-content h3 {
-    font-size: 1.2em;
-    color: #4a90e2;
+    font-size: 1.1em; /* Tamaño de letra reducido */
+    font-weight: 600; /* Resalta el título */
+    color: #5e2785; /* Morado oscuro */
     margin: 0 0 10px;
 }
 
 .card-content p {
     margin: 5px 0;
-    font-size: 0.95em;
-    color: #6c757d;
+    font-size: 0.85em; /* Tamaño más pequeño */
+    color: #5e2785; /* Morado oscuro */
 }
 
 .card-content p strong {
-    color: #212529;
+    color: #5e2785; /* Morado oscuro para los textos importantes */
+    font-weight: 600;
 }
 
 /* Botón */
@@ -59,9 +73,9 @@
     display: inline-block;
     margin-top: 10px;
     padding: 8px 15px;
-    background-color: #4a90e2;
+    background-color: #ff6600; /* Naranja oscuro */
     color: #fff;
-    font-size: 0.9em;
+    font-size: 0.85em; /* Tamaño más pequeño */
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
@@ -69,17 +83,17 @@
 }
 
 .link-button:hover {
-    background-color: #357abd;
+    background-color: #cc5200; /* Naranja más oscuro */
 }
 
 /* Numeración en las tarjetas */
 .card::before {
     content: attr(data-id);
     display: inline-block;
-    background-color: #6a1b9a;
+    background-color: #5e2785; /* Morado oscuro */
     color: white;
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 0.85em; /* Tamaño más pequeño */
     border-radius: 50%;
     width: 30px;
     height: 30px;
