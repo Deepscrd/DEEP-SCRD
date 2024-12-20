@@ -5,6 +5,7 @@ async function cargarInvestigaciones() {
 
         // Contenedor de las tarjetas
         const container = document.getElementById('investigaciones-container');
+        const searchBar = document.getElementById('search-bar'); // Input del buscador
         container.innerHTML = '';
 
         // Contador de publicaciones por año
@@ -20,48 +21,75 @@ async function cargarInvestigaciones() {
             .map(([anio, cantidad]) => `${cantidad} en ${anio}`)
             .join(' · ')}`;
 
-        // Renderizar las tarjetas
-        investigaciones.forEach((investigacion) => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.setAttribute('data-id', investigacion.id);
+        // Función para renderizar las tarjetas
+        function mostrarInvestigaciones(filtradas) {
+            container.innerHTML = ''; // Limpiar el contenedor
 
-            const img = document.createElement('img');
-            img.src = investigacion.imagen;
-            img.alt = investigacion.titulo;
-            img.className = 'card-img';
+            if (filtradas.length === 0) {
+                container.innerHTML = '<p>No se encontraron resultados.</p>';
+                return;
+            }
 
-            const cardContent = document.createElement('div');
-            cardContent.className = 'card-content';
+            filtradas.forEach((investigacion) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-id', investigacion.id);
 
-            const titulo = document.createElement('h3');
-            titulo.textContent = investigacion.titulo;
+                const img = document.createElement('img');
+                img.src = investigacion.imagen;
+                img.alt = investigacion.titulo;
+                img.className = 'card-img';
 
-            const descripcion = document.createElement('p');
-            descripcion.textContent = investigacion.descripcion;
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
 
-            const autor = document.createElement('p');
-            autor.innerHTML = `<strong>Autor:</strong> ${investigacion.autor}`;
+                const titulo = document.createElement('h3');
+                titulo.textContent = investigacion.titulo;
 
-            const anio = document.createElement('p');
-            anio.innerHTML = `<strong>Año:</strong> ${investigacion.anio}`;
+                const descripcion = document.createElement('p');
+                descripcion.textContent = investigacion.descripcion;
 
-            const linkButton = document.createElement('a');
-            linkButton.href = investigacion.link;
-            linkButton.textContent = 'Ver documento';
-            linkButton.className = 'link-button';
-            linkButton.target = '_blank';
+                const autor = document.createElement('p');
+                autor.innerHTML = `<strong>Autor:</strong> ${investigacion.autor}`;
 
-            cardContent.appendChild(titulo);
-            cardContent.appendChild(descripcion);
-            cardContent.appendChild(autor);
-            cardContent.appendChild(anio);
-            cardContent.appendChild(linkButton);
+                const anio = document.createElement('p');
+                anio.innerHTML = `<strong>Año:</strong> ${investigacion.anio}`;
 
-            card.appendChild(img);
-            card.appendChild(cardContent);
+                const linkButton = document.createElement('a');
+                linkButton.href = investigacion.link;
+                linkButton.textContent = 'Ver documento';
+                linkButton.className = 'link-button';
+                linkButton.target = '_blank';
 
-            container.appendChild(card);
+                cardContent.appendChild(titulo);
+                cardContent.appendChild(descripcion);
+                cardContent.appendChild(autor);
+                cardContent.appendChild(anio);
+                cardContent.appendChild(linkButton);
+
+                card.appendChild(img);
+                card.appendChild(cardContent);
+
+                container.appendChild(card);
+            });
+        }
+
+        // Mostrar todas las investigaciones inicialmente
+        mostrarInvestigaciones(investigaciones);
+
+        // Filtrar las investigaciones en tiempo real
+        searchBar.addEventListener('input', (e) => {
+            const termino = e.target.value.toLowerCase(); // Convierte el texto a minúsculas
+            const filtradas = investigaciones.filter((investigacion) => {
+                return (
+                    investigacion.titulo.toLowerCase().includes(termino) ||
+                    investigacion.descripcion.toLowerCase().includes(termino) ||
+                    investigacion.autor.toLowerCase().includes(termino) ||
+                    investigacion.anio.toString().includes(termino)
+                );
+            });
+
+            mostrarInvestigaciones(filtradas);
         });
     } catch (error) {
         console.error('Error al cargar las investigaciones:', error);
