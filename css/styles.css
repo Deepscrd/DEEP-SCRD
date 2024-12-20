@@ -1,38 +1,69 @@
+/* Estilos globales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
-    background-color: #4a90e2;
-    color: white;
+    background-color: #0056b3;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    padding: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
 }
 
 #search-bar {
-    margin: 1rem auto;
-    padding: 0.5rem;
+    margin-top: 10px;
+    padding: 10px;
     width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
 }
 
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem;
+/* Estilo para el grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-.investigacion-card {
+/* Estilo para las tarjetas */
+.card {
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin: 0.5rem;
-    padding: 1rem;
-    width: 300px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
 }
 
-.investigacion-card h3 {
-    margin: 0;
+.card-img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #0056b3;
+}
+
+.card-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #666;
 }
