@@ -10,8 +10,8 @@
 },
     {
         "id": 95,
-        "titulo": "Plan Cultura 2038",
-        "descripcion": "Análisis de actores clave en el Plan de Cultura 2038.",
+        "titulo": "Mercado Laboral",
+        "descripcion": "Análisis de mercado laboral.",
         "autor": "SCRD",
         "anio": 2024,
         "imagen": "img/plan-cultura-2038.jpg",
@@ -19,8 +19,8 @@
     },
     {
         "id": 60,
-        "titulo": "Metodología de Priorización",
-        "descripcion": "Diseño de una metodología de priorización geográfica multivariada.",
+        "titulo": "Indicador FIAV",
+        "descripcion": "Indicadores FIAV.",
         "autor": "SCRD",
         "anio": 2024,
         "imagen": "img/metodologia-priorizacion.jpg",
