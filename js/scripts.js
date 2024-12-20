@@ -1,34 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("investigaciones-container");
-    const searchBar = document.getElementById("search-bar");
-
-    fetch("data/investigaciones.json")
-        .then(response => response.json())
-        .then(data => {
-            renderInvestigaciones(data);
-
-            // Filtrar investigaciones con el cuadro de búsqueda
-            searchBar.addEventListener("input", () => {
-                const query = searchBar.value.toLowerCase();
-                const filteredData = data.filter(item =>
-                    item.titulo.toLowerCase().includes(query) ||
-                    item.descripcion.toLowerCase().includes(query)
-                );
-                renderInvestigaciones(filteredData);
-            });
-        });
-
-    function renderInvestigaciones(data) {
-        container.innerHTML = "";
-        data.forEach(investigacion => {
-            const card = document.createElement("div");
-            card.className = "investigacion-card";
-            card.innerHTML = `
-                <h3>${investigacion.titulo}</h3>
-                <p>${investigacion.descripcion}</p>
-                <small>Solicitante: ${investigacion.solicitante} | Año: ${investigacion.anio}</small>
-            `;
-            container.appendChild(card);
-        });
+// Datos de ejemplo
+const investigaciones = [
+    {
+        titulo: "Cuenta Satélite de Economía Cultural y Creativa de Bogotá (CSECCB)- Resultados 2023",
+        descripcion: "Resultados 2023 de la CSECCB en términos de valor agregado y empleo para el sector cultural y Creativo de Bogotá",
+        fuente: "SCRD y DANE",
+        año publicación: "2024",
+        imagen: "ruta/a/la-imagen.jpg"
+    },
+    {
+        titulo: "Mercado laboral",
+        descripcion: "xxxx",
+        fuente: "SCRD",
+        año publicación: "2024",
+        imagen: "ruta/a/otra-imagen.jpg"
     }
+];
+
+// Contenedor principal
+const container = document.getElementById('investigaciones-container');
+
+// Generar tarjetas dinámicamente
+investigaciones.forEach(investigacion => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+        <img src="${investigacion.imagen}" alt="Imagen de ${investigacion.titulo}" class="card-img">
+        <div class="card-content">
+            <h3>${investigacion.titulo}</h3>
+            <p>${investigacion.descripcion}</p>
+            <p><strong>Año:</strong> ${investigacion.año} | <strong>Solicitante:</strong> ${investigacion.solicitante}</p>
+        </div>
+    `;
+
+    container.appendChild(card);
 });
