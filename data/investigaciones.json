@@ -1,13 +1,13 @@
 [
     {
-        "id": 84,
-        "titulo": "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
-        "descripcion": "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
-        "autor": "SCRD - DANE",
-        "anio": 2024,
-        "imagen": "img/meta4.png",
-        "link": "docs/CSECCB2023.pdf"
-    },
+    "id": 84,
+    "titulo": "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
+    "descripcion": "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
+    "autor": "SCRD - DANE",
+    "anio": 2024,
+    "imagen": "img/meta4.png",
+    "link": "docs/CSECCB2023.pdf"
+},
     {
         "id": 95,
         "titulo": "Plan Cultura 2038",
