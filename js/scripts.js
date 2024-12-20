@@ -5,7 +5,7 @@ async function cargarInvestigaciones() {
         const container = document.getElementById('investigaciones-container');
         container.innerHTML = '';
 
-        investigaciones.forEach((investigacion) => {
+        investigaciones.forEach((investigacion, index) => {
             const card = document.createElement('div');
             card.className = 'card';
             card.setAttribute('data-id', investigacion.id);
