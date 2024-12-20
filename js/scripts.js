@@ -96,6 +96,10 @@ async function cargarInvestigaciones() {
         // Lógica para cambiar de tema
         toggleThemeButton.addEventListener('click', () => {
             document.body.classList.toggle('high-contrast');
+            toggleThemeButton.textContent = 
+                document.body.classList.contains('high-contrast') 
+                ? 'Modo normal' 
+                : 'Modo alto contraste';
         });
     } catch (error) {
         console.error('Error al cargar las investigaciones:', error);
