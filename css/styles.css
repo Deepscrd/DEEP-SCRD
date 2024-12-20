@@ -23,7 +23,9 @@ header h1 {
     font-size: 0.9em; /* Tamaño más pequeño */
     color: #6c757d; /* Color gris */
     text-align: center; /* Centrando el texto */
-    margin: 10px auto; /* Espaciado superior e inferior */
+    margin: 0 auto; /* Asegura que esté centrado horizontalmente */
+    display: block; /* Garantiza que sea tratado como bloque */
+    width: fit-content; /* Ajusta su ancho al contenido */
 }
 
 /* Contenedor principal */
