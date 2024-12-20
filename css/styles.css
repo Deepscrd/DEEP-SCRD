@@ -15,7 +15,31 @@ header h1 {
     font-size: 2em;
     color: #d4a017; /* Amarillo oscuro */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el buscador */
+#search-bar {
+    width: 100%;
+    max-width: 600px; /* Ajusta el ancho máximo */
+    padding: 15px 20px;
+    font-size: 1em;
+    border: none; /* Sin borde */
+    border-radius: 30px; /* Bordes redondeados */
+    background-color: #f2f5fc; /* Fondo claro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    outline: none;
+    margin: 20px auto; /* Centra el buscador */
+    display: block; /* Asegura que esté centrado */
+    color: #6c757d; /* Color del texto */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Efecto al enfocar el buscador */
+#search-bar:focus {
+    background-color: #e8effc; /* Fondo más claro al enfocar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    outline: none;
 }
 
 /* Contenedor principal */
@@ -146,5 +170,10 @@ header h1 {
     .card-img {
         max-width: 120px; /* Reduce el tamaño máximo de la imagen */
         margin-bottom: 10px;
+    }
+
+    #search-bar {
+        max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        padding: 10px;
     }
 }
