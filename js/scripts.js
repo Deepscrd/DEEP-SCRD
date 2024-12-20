@@ -1,7 +1,3 @@
-// Obtener el contenedor de investigaciones
-const container = document.getElementById('investigaciones-container');
-
-// JSON con datos de investigaciones
 const investigaciones = [
     {
         id: 84,
@@ -14,11 +10,9 @@ const investigaciones = [
     }
 ];
 
-// Generar las tarjetas dinámicamente
 investigaciones.forEach(investigacion => {
     const card = document.createElement('div');
     card.classList.add('card');
-
     card.innerHTML = `
         <img src="${investigacion.imagen}" alt="Imagen de ${investigacion.titulo}" class="card-img">
         <div class="card-content">
@@ -28,6 +22,5 @@ investigaciones.forEach(investigacion => {
             <a href="${investigacion.link}" class="link-button" target="_blank">Ver Documento</a>
         </div>
     `;
-
     container.appendChild(card);
 });
