@@ -1,18 +1,19 @@
-// Datos de ejemplo
 const investigaciones = [
     {
         titulo: "Cuenta Satélite de Economía Cultural y Creativa de Bogotá (CSECCB)- Resultados 2023",
-        descripcion: "Resultados 2023 de la CSECCB en términos de valor agregado y empleo para el sector cultural y Creativo de Bogotá",
+        descripcion: "Resultados 2023 de la CSECCB en términos de valor agregado y empleo para el sector cultural y creativo de Bogotá.",
         fuente: "SCRD y DANE",
-        año publicación: "2024",
-        imagen: "ruta/a/la-imagen.jpg"
+        año: "2024",
+        imagen: "img/cseccb-2023.jpg",
+        documento: "docs/cseccb-2023.pdf"
     },
     {
         titulo: "Mercado laboral",
-        descripcion: "xxxx",
+        descripcion: "Análisis del comportamiento del mercado laboral en el sector cultural.",
         fuente: "SCRD",
-        año publicación: "2024",
-        imagen: "ruta/a/otra-imagen.jpg"
+        año: "2024",
+        imagen: "img/mercado-laboral.jpg",
+        documento: "docs/mercado-laboral.pdf"
     }
 ];
 
@@ -29,7 +30,8 @@ investigaciones.forEach(investigacion => {
         <div class="card-content">
             <h3>${investigacion.titulo}</h3>
             <p>${investigacion.descripcion}</p>
-            <p><strong>Año:</strong> ${investigacion.año} | <strong>Solicitante:</strong> ${investigacion.solicitante}</p>
+            <p><strong>Año:</strong> ${investigacion.año} | <strong>Fuente:</strong> ${investigacion.fuente}</p>
+            <a href="${investigacion.documento}" target="_blank" class="btn">Ver Documento</a>
         </div>
     `;
 
