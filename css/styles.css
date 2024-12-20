@@ -30,23 +30,25 @@ header h1 {
     font-size: 1em;
 }
 
-/* Estilo para el grid */
+/* Contenedor principal */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-    padding: 30px;
+    display: block;
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* Estilo para las tarjetas */
 .card {
+    display: flex;
+    align-items: flex-start;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     overflow: hidden;
+    padding: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -55,25 +57,28 @@ header h1 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Imagen dentro de la tarjeta */
 .card-img {
-    width: 100%;
-    height: 200px;
+    width: 120px;
+    height: 80px;
     object-fit: cover;
-    display: block;
+    border-radius: 8px;
+    margin-right: 20px;
 }
 
+/* Contenido de las tarjetas */
 .card-content {
-    padding: 20px;
+    flex: 1;
 }
 
 .card-content h3 {
-    margin: 0 0 15px 0;
-    font-size: 1.4em;
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
     color: #4a90e2;
 }
 
 .card-content p {
-    margin: 0 0 10px 0;
+    margin: 5px 0;
     font-size: 0.95em;
     color: #6c757d;
 }
@@ -99,4 +104,3 @@ header h1 {
 .card-content .link-button:hover {
     background-color: #357abd;
 }
-
