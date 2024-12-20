@@ -5,7 +5,7 @@ const investigaciones = [
         descripcion: "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
         autor: "SCRD - DANE",
         anio publicación: 2024,
-        imagen: "img/indice-cultura-2023.jpg", // Ruta de la imagen correspondiente
+        imagen: "img/meta4.png", // Ruta de la imagen correspondiente
         link: "docs/indice-cultura-2023.pdf" // Enlace al archivo PDF
     },
     {
