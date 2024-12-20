@@ -1,13 +1,14 @@
 [
     {
-    "id": 84,
-    "titulo": "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
-    "descripcion": "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
-    "autor": "SCRD - DANE",
-    "anio": 2024,
-    "imagen": "img/logoCSECCB.png",
-    "link": "docs/CSECCB2023.pdf"
-},
+        "id": 84,
+        "titulo": "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
+        "descripcion": "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
+        "autor": "SCRD - DANE",
+        "anio": 2024,
+        "imagen": "img/logoCSECCB.png",
+        "link": "docs/CSECCB2023.pdf",
+        "pagina": "pages/cseccb2023.html"
+    },
     {
         "id": 95,
         "titulo": "Mercado Laboral",
@@ -15,7 +16,8 @@
         "autor": "SCRD",
         "anio": 2024,
         "imagen": "img/logo_scrd_morado_trasparente.png",
-        "link": "docs/plan-cultura-2038.pdf"
+        "link": "docs/plan-cultura-2038.pdf",
+        "pagina": "pages/mercado-laboral.html"
     },
     {
         "id": 60,
@@ -24,6 +26,7 @@
         "autor": "SCRD",
         "anio": 2024,
         "imagen": "img/logo_scrd_morado_trasparente.png",
-        "link": "docs/metodologia-priorizacion.pdf"
+        "link": "docs/metodologia-priorizacion.pdf",
+        "pagina": "pages/indicador-fiav.html"
     }
 ]
