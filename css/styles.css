@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+#search-bar {
+    margin: 1rem auto;
+    padding: 0.5rem;
+    width: 80%;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.investigacion-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 300px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.investigacion-card h3 {
+    margin: 0;
+}
