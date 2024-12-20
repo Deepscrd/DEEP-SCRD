@@ -1,31 +1,29 @@
 const investigaciones = [
     {
-        "id": 84,
-        "titulo": "Análisis de los resultados del Índice de Cultura Ciudadana 2023 en Bogotá",
-        "descripcion": "Análisis de los resultados del Índice de Cultura Ciudadana...",
-        "solicitante": "SCRD",
-        "anio": 2024
+        id: 84,
+        titulo: "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
+        descripcion: "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
+        autor: "SCRD - DANE",
+        anio publicación: 2024,
+        imagen: "img/indice-cultura-2023.jpg", // Ruta de la imagen correspondiente
+        link: "docs/indice-cultura-2023.pdf" // Enlace al archivo PDF
+    },
+    {
+        id: 95,
+        titulo: "xxxxxxxx",
+        descripcion: "xxxxxxx.",
+        solicitante: "SCRD",
+        anio: 2024,
+        imagen: "img/plan-cultura-2038.jpg", // Ruta de la imagen correspondiente
+        link: "docs/plan-cultura-2038.pdf" // Enlace al archivo PDF
+    },
+    {
+        id: 60,
+        titulo: "xxxxxxxxxxx",
+        descripcion: "xxxxxxxx.",
+        solicitante: "SCRD",
+        anio: 2024,
+        imagen: "img/metodologia-priorizacion.jpg", // Ruta de la imagen correspondiente
+        link: "docs/metodologia-priorizacion.pdf" // Enlace al archivo PDF
     }
 ];
-
-// Contenedor principal
-const container = document.getElementById("investigaciones-container");
-
-// Generar tarjetas dinámicamente
-investigaciones.forEach(investigacion => {
-    const enlace = `docs/documento-${investigacion.id}.pdf`; // Construcción del enlace dinámico basado en el ID
-
-    const card = document.createElement('div');
-    card.classList.add('card');
-
-    card.innerHTML = `
-        <div class="card-content">
-            <h3>${investigacion.titulo}</h3>
-            <p>${investigacion.descripcion}</p>
-            <p><strong>Solicitante:</strong> ${investigacion.solicitante} | <strong>Año:</strong> ${investigacion.anio}</p>
-            <a href="${enlace}" target="_blank" class="btn">Ver Documento</a>
-        </div>
-    `;
-
-    container.appendChild(card);
-});
