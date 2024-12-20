@@ -4,7 +4,7 @@ const investigaciones = [
         titulo: "Resultados 2023 de la Cuenta Satélite de Economía, Cultural y Creativa de Bogotá (CSECCB)",
         descripcion: "Resultados del sector cultural y creativo de Bogotá en términos de valor agregado y empleo.",
         autor: "SCRD - DANE",
-        anio publicación: 2024,
+        anio: 2024,
         imagen: "img/meta4.png", // Ruta de la imagen correspondiente
         link: "docs/DEEP_Publicación de Resultados CSECCB serie 2014-2023pr.pdf" // Enlace al archivo PDF
     },
@@ -12,7 +12,7 @@ const investigaciones = [
         id: 95,
         titulo: "xxxxxxxx",
         descripcion: "xxxxxxx.",
-        solicitante: "SCRD",
+        autor: "SCRD",
         anio: 2024,
         imagen: "img/plan-cultura-2038.jpg", // Ruta de la imagen correspondiente
         link: "docs/plan-cultura-2038.pdf" // Enlace al archivo PDF
@@ -21,7 +21,7 @@ const investigaciones = [
         id: 60,
         titulo: "xxxxxxxxxxx",
         descripcion: "xxxxxxxx.",
-        solicitante: "SCRD",
+        autor: "SCRD",
         anio: 2024,
         imagen: "img/metodologia-priorizacion.jpg", // Ruta de la imagen correspondiente
         link: "docs/metodologia-priorizacion.pdf" // Enlace al archivo PDF
