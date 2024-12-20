@@ -12,56 +12,8 @@
         <input type="text" id="search-bar" placeholder="Buscar investigación">
     </header>
     <main id="investigaciones-container" class="grid-container">
-        <!-- Ejemplo de una tarjeta (puedes generar más dinámicamente con JavaScript) -->
-        <div class="card">
-            <img src="ruta/a/la-imagen.jpg" alt="Imagen de la investigación" class="card-img">
-            <div class="card-content">
-                <h3>Análisis de los resultados del Índice de Cultura Ciudadana 2023</h3>
-                <p>Análisis de los resultados del Índice de Cultura Ciudadana...</p>
-                <p><strong>Año:</strong> 2024 | <strong>Solicitante:</strong> SCRD</p>
-            </div>
-        </div>
+        <!-- Las tarjetas se generarán dinámicamente desde scripts.js -->
     </main>
-    <script>
-        // Datos de investigaciones
-        const investigaciones = [
-            {
-                "id": 84,
-                "titulo": "Análisis de los resultados del Índice de Cultura Ciudadana 2023 en Bogotá",
-                "descripcion": "Análisis de los resultados del Índice de Cultura Ciudadana...",
-                "solicitante": "SCRD",
-                "anio": 2024
-            },
-            {
-                "id": 95,
-                "titulo": "Plan de Cultura 2038",
-                "descripcion": "Análisis de entrevistas de actores clave asociados al Plan de Cultura 2038.",
-                "solicitante": "SCRD",
-                "anio": 2024
-            }
-        ];
-
-        // Contenedor principal
-        const container = document.getElementById("investigaciones-container");
-
-        // Generar tarjetas dinámicamente
-        investigaciones.forEach(investigacion => {
-            const enlace = `docs/documento-${investigacion.id}.pdf`; // Construcción del enlace dinámico basado en el ID
-
-            const card = document.createElement('div');
-            card.classList.add('card');
-
-            card.innerHTML = `
-                <div class="card-content">
-                    <h3>${investigacion.titulo}</h3>
-                    <p>${investigacion.descripcion}</p>
-                    <p><strong>Solicitante:</strong> ${investigacion.solicitante} | <strong>Año:</strong> ${investigacion.anio}</p>
-                    <a href="${enlace}" target="_blank" class="btn">Ver Documento</a>
-                </div>
-            `;
-
-            container.appendChild(card);
-        });
-    </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
