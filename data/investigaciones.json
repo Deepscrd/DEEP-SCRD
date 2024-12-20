@@ -14,8 +14,8 @@ const investigaciones = [
         descripcion: "xxxxxxx.",
         autor: "SCRD",
         anio: 2024,
-        imagen: "img/plan-cultura-2038.jpg", // Ruta de la imagen correspondiente
-        link: "docs/plan-cultura-2038.pdf" // Enlace al archivo PDF
+        imagen: "img/meta4.png", // Ruta de la imagen correspondiente
+        link: "docs/DEEP_Publicación%20de%20Resultados%20CSECCB%20serie%202014-2023pr.pdf" // Enlace al archivo PDF
     },
     {
         id: 60,
@@ -23,7 +23,7 @@ const investigaciones = [
         descripcion: "xxxxxxxx.",
         autor: "SCRD",
         anio: 2024,
-        imagen: "img/metodologia-priorizacion.jpg", // Ruta de la imagen correspondiente
-        link: "docs/metodologia-priorizacion.pdf" // Enlace al archivo PDF
+        imagen: "img/meta4.png", // Ruta de la imagen correspondiente
+        link: "docs/DEEP_Publicación%20de%20Resultados%20CSECCB%20serie%202014-2023pr.pdf" // Enlace al archivo PDF
     }
 ];
