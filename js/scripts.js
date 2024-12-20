@@ -44,8 +44,11 @@ async function cargarInvestigaciones() {
                 const cardContent = document.createElement('div');
                 cardContent.className = 'card-content';
 
-                const titulo = document.createElement('h3');
+                const titulo = document.createElement('a');
+                titulo.href = investigacion.pagina; // Redirige a la página específica
                 titulo.textContent = investigacion.titulo;
+                titulo.className = 'investigation-title';
+                titulo.target = '_blank'; // Abre en una nueva pestaña
 
                 const descripcion = document.createElement('p');
                 descripcion.textContent = investigacion.descripcion;
