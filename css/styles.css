@@ -18,42 +18,23 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* Buscador */
-#search-bar {
-    width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    border: 2px solid #5e2785;
-    border-radius: 8px;
-    font-size: 1em;
-    margin: 0 auto 20px auto;
-    display: block;
-}
-
-#search-bar:focus {
-    border-color: #d4a017; /* Amarillo oscuro */
-    box-shadow: 0 0 8px rgba(212, 160, 23, 0.5);
-}
-
 /* Contenedor principal */
 .grid-container {
-    display: grid; /* Usa grid para diseño fluido */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ajuste automático */
-    gap: 20px;
-    padding: 20px;
+    display: block; /* Cambia de grid a block */
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 /* Tarjetas */
 .card {
     display: flex;
-    flex-direction: column; /* Cambia a columnas para pantallas pequeñas */
-    align-items: center;
+    align-items: flex-start;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -65,24 +46,23 @@ header h1 {
 
 /* Imagen dentro de la tarjeta */
 .card-img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
+    width: 150px;
+    height: 100px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-right: 20px;
 }
 
 /* Contenido textual */
 .card-content {
-    text-align: center;
+    flex: 1;
 }
 
 .card-content h3 {
     font-size: 1.1em; /* Tamaño de letra reducido */
     font-weight: 600; /* Resalta el título */
     color: #5e2785; /* Morado oscuro */
-    margin: 10px 0;
+    margin: 0 0 10px;
 }
 
 .card-content p {
@@ -127,30 +107,5 @@ header h1 {
     height: 30px;
     text-align: center;
     line-height: 30px;
-    margin-bottom: 10px;
-}
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .card {
-        flex-direction: column; /* Cambia a columnas en pantallas pequeñas */
-        text-align: center;
-    }
-
-    .card-img {
-        margin: 0 auto 15px auto;
-    }
-
-    .card-content {
-        text-align: center;
-    }
-
-    header h1 {
-        font-size: 1.8em; /* Tamaño ajustado para móviles */
-    }
-
-    #search-bar {
-        font-size: 0.9em;
-        padding: 8px;
-    }
+    margin-right: 15px;
 }
