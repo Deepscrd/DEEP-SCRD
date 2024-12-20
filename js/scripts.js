@@ -44,11 +44,12 @@ async function cargarInvestigaciones() {
                 const cardContent = document.createElement('div');
                 cardContent.className = 'card-content';
 
+                // Convertir el título en un enlace a la página específica
                 const titulo = document.createElement('a');
-                titulo.href = investigacion.pagina; // Redirige a la página específica
+                titulo.href = investigacion.pagina; // Usar la página específica
                 titulo.textContent = investigacion.titulo;
                 titulo.className = 'investigation-title';
-                titulo.target = '_blank'; // Abre en una nueva pestaña
+                titulo.target = '_blank'; // Abrir en una nueva pestaña
 
                 const descripcion = document.createElement('p');
                 descripcion.textContent = investigacion.descripcion;
@@ -59,8 +60,9 @@ async function cargarInvestigaciones() {
                 const anio = document.createElement('p');
                 anio.innerHTML = `<strong>Año:</strong> ${investigacion.anio}`;
 
+                // Botón "Ver documento" que también redirige a la página específica
                 const linkButton = document.createElement('a');
-                linkButton.href = investigacion.link;
+                linkButton.href = investigacion.pagina; // Usar la página específica
                 linkButton.textContent = 'Ver documento';
                 linkButton.className = 'link-button';
                 linkButton.target = '_blank';
