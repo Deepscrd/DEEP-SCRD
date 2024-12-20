@@ -1,16 +1,31 @@
-[
+const investigaciones = [
     {
         "id": 84,
         "titulo": "Análisis de los resultados del Índice de Cultura Ciudadana 2023 en Bogotá",
         "descripcion": "Análisis de los resultados del Índice de Cultura Ciudadana...",
         "solicitante": "SCRD",
         "anio": 2024
-    },
-    {
-        "id": 95,
-        "titulo": "Análisis Entrevistas Actores Clave - Plan de Cultura 2038",
-        "descripcion": "Acompañamiento de los análisis de entrevistas...",
-        "solicitante": "SCRD",
-        "anio": 2024
     }
-]
+];
+
+// Contenedor principal
+const container = document.getElementById("investigaciones-container");
+
+// Generar tarjetas dinámicamente
+investigaciones.forEach(investigacion => {
+    const enlace = `docs/documento-${investigacion.id}.pdf`; // Construcción del enlace dinámico basado en el ID
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+        <div class="card-content">
+            <h3>${investigacion.titulo}</h3>
+            <p>${investigacion.descripcion}</p>
+            <p><strong>Solicitante:</strong> ${investigacion.solicitante} | <strong>Año:</strong> ${investigacion.anio}</p>
+            <a href="${enlace}" target="_blank" class="btn">Ver Documento</a>
+        </div>
+    `;
+
+    container.appendChild(card);
+});
