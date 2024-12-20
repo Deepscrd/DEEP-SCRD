@@ -6,7 +6,7 @@ const investigaciones = [
         autor: "SCRD - DANE",
         anio publicación: 2024,
         imagen: "img/meta4.png", // Ruta de la imagen correspondiente
-        link: "docs/indice-cultura-2023.pdf" // Enlace al archivo PDF
+        link: "docs/DEEP_Publicación de Resultados CSECCB serie 2014-2023pr.pdf" // Enlace al archivo PDF
     },
     {
         id: 95,
