@@ -3,23 +3,22 @@ async function cargarInvestigaciones() {
         const response = await fetch('data/investigaciones.json');
         const investigaciones = await response.json();
 
-        // Contenedor principal
+        // Contenedor de las tarjetas
         const container = document.getElementById('investigaciones-container');
         container.innerHTML = '';
 
-        // Elemento para mostrar publicaciones por año
+        // Contador de publicaciones por año
         const publicacionesPorAnio = {};
         investigaciones.forEach((investigacion) => {
             const anio = investigacion.anio;
             publicacionesPorAnio[anio] = (publicacionesPorAnio[anio] || 0) + 1;
         });
 
-        const publicacionesPorAnioTexto = Object.entries(publicacionesPorAnio)
-            .map(([anio, cantidad]) => `${cantidad} publicaciones en ${anio}`)
-            .join(' · ');
-        
+        // Actualizar el texto del conteo en la página
         const publicacionesTexto = document.getElementById('publicaciones-por-anio');
-        publicacionesTexto.textContent = publicacionesPorAnioTexto;
+        publicacionesTexto.textContent = `Publicaciones: ${Object.entries(publicacionesPorAnio)
+            .map(([anio, cantidad]) => `${cantidad} en ${anio}`)
+            .join(' · ')}`;
 
         // Renderizar las tarjetas
         investigaciones.forEach((investigacion) => {
@@ -69,15 +68,4 @@ async function cargarInvestigaciones() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Crear el elemento dinámico para el conteo
-    const header = document.querySelector('header');
-    const publicacionesPorAnio = document.createElement('p');
-    publicacionesPorAnio.id = 'publicaciones-por-anio';
-    publicacionesPorAnio.style.marginTop = '10px';
-    publicacionesPorAnio.style.color = '#5e2785'; // Morado oscuro
-    publicacionesPorAnio.style.textAlign = 'center';
-    header.appendChild(publicacionesPorAnio);
-
-    cargarInvestigaciones();
-});
+document.addEventListener('DOMContentLoaded', cargarInvestigaciones);
