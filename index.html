@@ -12,78 +12,15 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
         gtag('config', 'G-X6RG3BYB89');
     </script>
-
-    <style>
-        /* Estilo del contenedor del buscador */
-        #search-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px auto;
-            width: 80%;
-        }
-
-        /* Estilo para el input del buscador */
-        #search-bar {
-            width: 100%;
-            max-width: 600px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-            background-color: #f9fbfc;
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Efecto al enfocar el input */
-        #search-bar:focus {
-            border-color: #ffc107;
-            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.5);
-        }
-
-        /* Botón de alto contraste */
-        .contrast-button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 25px;
-            background-color: #ffc107;
-            color: #fff;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contrast-button:hover {
-            background-color: #ffa000;
-        }
-
-        /* Botón "Más información" en las tarjetas */
-        .link-button {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #ffc107;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-        }
-
-        .link-button:hover {
-            background-color: #ffa000;
-        }
-    </style>
 </head>
 <body>
     <header>
         <h1>Investigaciones</h1>
-        <div id="search-container">
-            <input type="text" id="search-bar" placeholder="Buscar investigación">
-        </div>
+        <p id="publicaciones-por-anio"></p>
+        <input type="text" id="search-bar" placeholder="Buscar investigación">
         <!-- Botón de modo alto contraste -->
         <button id="toggle-theme" class="contrast-button" aria-label="Cambiar a modo alto contraste">Modo alto contraste</button>
     </header>
@@ -109,9 +46,9 @@
 
                 // Actualizar el texto del conteo en la página
                 const publicacionesTexto = document.getElementById('publicaciones-por-anio');
-                publicacionesTexto.textContent = `Publicaciones: ${Object.entries(publicacionesPorAnio)
-                    .map(([anio, cantidad]) => `${cantidad} en ${anio}`)
-                    .join(' · ')}`;
+                publicacionesTexto.textContent = Publicaciones: ${Object.entries(publicacionesPorAnio)
+                    .map(([anio, cantidad]) => ${cantidad} en ${anio})
+                    .join(' · ')};
 
                 // Función para renderizar las tarjetas
                 function mostrarInvestigaciones(filtradas) {
@@ -146,10 +83,10 @@
                         descripcion.textContent = investigacion.descripcion;
 
                         const autor = document.createElement('p');
-                        autor.innerHTML = `<strong>Autor:</strong> ${investigacion.autor}`;
+                        autor.innerHTML = <strong>Autor:</strong> ${investigacion.autor};
 
                         const anio = document.createElement('p');
-                        anio.innerHTML = `<strong>Año:</strong> ${investigacion.anio}`;
+                        anio.innerHTML = <strong>Año:</strong> ${investigacion.anio};
 
                         // Ajustar el botón "Más información"
                         const linkButton = document.createElement('a');
