@@ -10,6 +10,14 @@ body {
     padding: 0;
 }
 
+/* Título principal */
+header h1 {
+    font-size: 2em;
+    color: #d4a017; /* Amarillo oscuro */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 /* Contenedor principal */
 .grid-container {
     display: block; /* Cambia de grid a block */
@@ -60,7 +68,7 @@ body {
 .card-content p {
     margin: 5px 0;
     font-size: 0.85em; /* Tamaño más pequeño */
-    color: #5e2785; /* Morado oscuro */
+    color: #4a4a4a; /* Gris oscuro */
 }
 
 .card-content p strong {
@@ -73,7 +81,7 @@ body {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 15px;
-    background-color: #ff6600; /* Naranja oscuro */
+    background-color: #d4a017; /* Amarillo oscuro */
     color: #fff;
     font-size: 0.85em; /* Tamaño más pequeño */
     font-weight: bold;
@@ -83,7 +91,7 @@ body {
 }
 
 .link-button:hover {
-    background-color: #cc5200; /* Naranja más oscuro */
+    background-color: #b38914; /* Amarillo más oscuro */
 }
 
 /* Numeración en las tarjetas */
